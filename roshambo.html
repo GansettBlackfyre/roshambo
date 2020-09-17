@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+</head>
+<body>
+    
+  <script>
+
+   function computerPlay(){
+    const computerRockPaperScissor = ["rock", "paper", "scissors"];
+    const randomElement = computerRockPaperScissor[Math.floor(Math.random() * computerRockPaperScissor.length)];
+    const random = Math.floor(Math.random() * computerRockPaperScissor.length);
+    let computerSelection = computerRockPaperScissor[random];
+    return computerSelection;
+   }
+   console.log(computerPlay());
+   function playRound(computerSelection, playerSelection){
+       let compPlay = computerSelection.toLowerCase();
+       let playerPlay = playerSelection.toLowerCase();
+       if(playerPlay == "rock"){
+           if (compPlay == "rock"){
+               return "it's a tie";
+           } else if (compPlay == "paper"){
+               return "You lose, paper beats rock";
+           } else {
+               return "You win, rock beats scissors";
+           }
+       } else if(playerPlay == "paper"){
+        if (compPlay == "rock"){
+               return "You win, paper beats rock";
+           } else if (compPlay == "paper"){
+               return "It's a tie";
+           } else {
+               return "You lose, scissors beats paper";
+           }
+       } else {
+        if (compPlay == "rock"){
+               return "You lose, rock beats scissors";
+           } else if (compPlay == "paper"){
+               return "You win, scissors beats paper";
+           } else {
+               return "It's a tie";
+           }
+       }
+   }
+  function game(){
+   playerPrompt = window.prompt("Rock Paper or Scissors", "Rock");
+
+   console.log(playRound(computerPlay(),playerPrompt));
+   
+   alert(playRound(computerPlay(),playerPrompt));
+   playerPrompt = window.prompt("Rock Paper or Scissors", "Rock");
+
+console.log(playRound(computerPlay(),playerPrompt));
+
+alert(playRound(computerPlay(),playerPrompt));
+playerPrompt = window.prompt("Rock Paper or Scissors", "Rock");
+
+console.log(playRound(computerPlay(),playerPrompt));
+
+alert(playRound(computerPlay(),playerPrompt));
+playerPrompt = window.prompt("Rock Paper or Scissors", "Rock");
+
+console.log(playRound(computerPlay(),playerPrompt));
+
+alert(playRound(computerPlay(),playerPrompt));
+playerPrompt = window.prompt("Rock Paper or Scissors", "Rock");
+
+console.log(playRound(computerPlay(),playerPrompt));
+
+alert(playRound(computerPlay(),playerPrompt));
+playerPrompt = window.prompt("Rock Paper or Scissors", "Rock");
+
+console.log(playRound(computerPlay(),playerPrompt));
+
+alert(playRound(computerPlay(),playerPrompt));
+  }
+  game();
+  
+  </script>
+</body>
