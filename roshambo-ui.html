@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+</head>
+<body>
+   <button id='rock'> Rock </button> 
+   <button id= 'paper'> Paper </button> 
+   <button id= 'scissors'> Scissors</button>
+
+   <div id='playrps'>
+       <h1>Play Rock Paper Scissors! </h1>
+       <p id=wltMsg > </p>
+       <h3 id=wltCounter> 
+           
+       </h3>
+   </div>
+  <script>
+    let win = 0;
+    let lose = 0;
+    let tie = 0;
+   function computerPlay(){
+    const computerRockPaperScissor = ["rock", "paper", "scissors"];
+    const randomElement = computerRockPaperScissor[Math.floor(Math.random() * computerRockPaperScissor.length)];
+    const random = Math.floor(Math.random() * computerRockPaperScissor.length);
+    let computerSelection = computerRockPaperScissor[random];
+    return computerSelection;
+   }
+   function playRound(computerSelection, playerSelection){
+       let compPlay = computerSelection.toLowerCase();
+       let playerPlay = playerSelection.toLowerCase();
+       if(playerPlay == "rock"){
+           if (compPlay == "rock"){
+               tie++;
+               return "it's a tie";
+           } else if (compPlay == "paper"){
+               lose++;
+               return "You lose, paper beats rock";
+           } else {
+               win++;
+               return "You win, rock beats scissors";
+           }
+       } else if(playerPlay == "paper"){
+        if (compPlay == "rock"){
+            win++;
+               return "You win, paper beats rock";
+           } else if (compPlay == "paper"){
+                tie++;
+               return "It's a tie";
+           } else {
+            lose++;
+               return "You lose, scissors beats paper";
+           }
+       } else {
+        if (compPlay == "rock"){
+            lose++;
+               return "You lose, rock beats scissors";
+           } else if (compPlay == "paper"){
+            win++;
+               return "You win, scissors beats paper";
+           } else {
+            tie++;
+               return "It's a tie";
+           }
+       }
+   }
+   
+   const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+        wltMsg.textContent = playRound(computerPlay(), button.id);
+        var counterText = 'Wins ' + win + ' Loses ' + lose + ' ties ' + tie;
+        wltCounter.textContent = counterText;
+         });
+    });
+  
+  
+  </script>
+</body>
